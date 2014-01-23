@@ -1631,7 +1631,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             if (search.val().length < opts.minimumInputLength) {
                 if (checkFormatter(opts.formatInputTooShort, "formatInputTooShort")) {
-                    render("<li class='select2-no-results'>" + opts.formatInputTooShort(search.val(), opts.minimumInputLength) + "</li>");
+                    render("<li class='select2-no-results'>" + opts.formatInputTooShort(search.val(), opts.minimumInputLength) + "</li>" + opts.setDefaultChoices());
                 } else {
                     render("");
                 }
@@ -3314,6 +3314,7 @@ the specific language governing permissions and limitations under the Apache Lic
         formatSearching: function () { return "Searching…"; },
         minimumResultsForSearch: 0,
         minimumInputLength: 0,
+        setDefaultChoices: function (string) { return string == undefined ? '' : string; },
         maximumInputLength: null,
         maximumSelectionSize: 0,
         id: function (e) { return e == undefined ? null : e.id; },
